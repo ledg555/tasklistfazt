@@ -16,10 +16,14 @@ function App() {
     setTasks([...tasks, newTask]);
   }
 
+  function removeTask(taskId) {
+    setTasks(tasks.filter(task => task.id !== taskId));
+  }
+
   return (
     <>
       <TaskForm createTask={createTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} removeTask={removeTask}/>
     </>
   );
 }
